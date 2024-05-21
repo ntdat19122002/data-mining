@@ -14,7 +14,7 @@ X_train, X_test, y_train, y_test = train_test_split(
     inputs, target, test_size=0.2, random_state=1234
 )
 
-clf = DecisionTreeC45(max_depth=4)
+clf = DecisionTree(max_depth=4)
 clf.fit(X_train, y_train)
 predictions = clf.predict(X_test)
 
@@ -22,6 +22,5 @@ def accuracy(y_test, y_pred):
     return np.sum(y_test.iloc[:,0].values == y_pred) / len(y_test)
     # return np.sum(y_test == y_pred) / len(y_test)
 
-acc = accuracy(y_test, predictions)
-print(acc)
+print(accuracy(y_test, predictions))
 print("--- %s seconds ---" % (time.time() - start_time))
